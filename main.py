@@ -3,6 +3,7 @@ import pandas as pd
 import functions as f
 import creat_csv_script as csv
 import random
+import os
 
 # Page settings
 st.set_page_config(page_title="Purchase Recommendation System", layout="wide")
@@ -12,13 +13,21 @@ st.title("🛒 Purchase Recommendation System")
 # Sidebar for CSV handling
 st.sidebar.header("Upload or Generate Data")
 
+# Define a flag to check if synthetic CSV should be loaded
+use_synthetic_csv = False
+
 uploaded_file = st.sidebar.file_uploader("Upload your CSV", type=["csv"])
 if st.sidebar.button("Generate Synthetic CSV"):
     csv.create()
     st.success("Synthetic CSV generated as 'synthetic_purchases.csv'")
-    df = pd.read_csv("synthetic_purchases.csv")
-elif uploaded_file:
+    use_synthetic_csv = True
+    st.rerun()  # Rerun to refresh the session with the flag
+
+# Load data
+if uploaded_file:
     df = pd.read_csv(uploaded_file)
+elif use_synthetic_csv or os.path.exists("synthetic_purchases.csv"):
+    df = pd.read_csv("synthetic_purchases.csv")
 else:
     st.warning("Upload a CSV or generate one to continue.")
     st.stop()
