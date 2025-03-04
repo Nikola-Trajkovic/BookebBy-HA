@@ -15,7 +15,7 @@ Check out the live demo (if available) at:
 
 ### 1️⃣ Install Python
 
-Ensure Python 3.8+ is installed on your system.  
+Ensure Python 3.12.5+ is installed on your system.  
 You can download it from:  
 [Python Downloads](https://www.python.org/downloads/)
 
