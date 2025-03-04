@@ -28,7 +28,16 @@ git clone https://github.com/Nikola-Trajkovic/BookebBy-HA.git
 cd BookebBy-HA
 ```
 
-### 3️⃣ Install Dependencies
+### 3️⃣ (Optional) Create a Virtual Environment
+
+It's a good practice to create a virtual environment for this project:
+
+```bash
+python -m venv venv
+source venv/bin/activate  # For Windows: venv\Scripts\activate
+```
+
+### 4️⃣ Install Dependencies
 
 Install the required dependencies:
 
@@ -36,7 +45,7 @@ Install the required dependencies:
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Run the Streamlit App
+### 5️⃣ Run the Streamlit App
 
 Run the application using Streamlit:
 
